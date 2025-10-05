@@ -65,7 +65,19 @@ document.getElementById('convert').onclick = () => {
   const text = document.getElementById('input').value;
   const decomposed = Hangul.disassemble(text); // 자모 분리
   const result = decomposed.map(ch => triMap[ch] || ch).join(' ');
-  document.getElementById('output').textContent = result;
+  document.getElementById('output').textContent = toTriCode(text);
 };
+
+function toTriCode(text) {
+  return text.split('').map(ch => {
+    // 1) 한 글자를 자모 배열로 분해
+    const jamo = Hangul.disassemble(ch);
+    
+    // 2) 각 자모를 TriCode로 변환하고 붙이기
+    return jamo.map(j => triMap[j] || j).join('');
+    
+  }).join(' ');  // 글자 사이에는 공백
+}
+
 </script>
 </html>
