@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코브코드 변환기</title>
+</head>
+<body>
+    <textarea id="input"></textarea>
+    <button id="convert">변환</button>
+    <pre id="output"></pre>
+</body>
+
+<script src="https://unpkg.com/hangul-js"></script>
+<script>
+const triMap = {
+  'ㄱ': '.',
+  'ㄴ': '.,',
+  'ㄷ': '.,,',
+  'ㄹ': '..,',
+  'ㅁ': "",
+  'ㅂ':"",
+  'ㅅ':"
+  'ㅇ':"
+  'ㅈ':"
+  'ㅊ':"
+  'ㅋ':"
+  "ㅌ":"
+  "ㅍ":"
+  "ㅎ":"
+  "ㅏ":"
+  "ㅑ":"
+  "ㅓ":"
+  "ㅕ":"
+  "ㅗ":"
+  "ㅛ":"
+  "ㅜ":"
+  "ㅠ":"
+  "ㅡ":"
+  "ㅣ":"
+  "ㅔ":"
+  "ㅖ":"
+  "ㅐ":"
+  "ㅒ":"
+  "ㅘ":"
+  "ㅙ":"
+  "ㅚ":"
+  "ㅝ":"
+  "ㅞ":"
+  "ㅟ":"
+  "ㅢ":"
+  "ㄵ":"
+  "ㄶ":"
+  "ㄺ":"
+  "ㄻ":"
+  "ㄼ":"
+  "ㄽ":"
+  "ㄾ":"
+  "ㄿ":"
+  "ㅀ":"
+  "ㅄ":"
+};
+
+document.getElementById('convert').onclick = () => {
+  const text = document.getElementById('input').value;
+  const decomposed = Hangul.disassemble(text); // 자모 분리
+  const result = decomposed.map(ch => triMap[ch] || ch).join(' ');
+  document.getElementById('output').textContent = result;
+};
+</script>
+</html>
