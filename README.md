@@ -11,7 +11,7 @@
 
 한글을 **. , / \ | : ;** 를 사용하여 변환한것입니다.
 
-* [번역기 사용하기](https://snowy-rgb.github.io/kovcode)
+* [번역기 사용하기](https://snowy-rgb.github.io/KovCode/)
 
 
 
